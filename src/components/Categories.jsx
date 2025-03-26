@@ -53,13 +53,15 @@ const Categories = () => {
         <div className='bg-[#F3E8FF] py-12 my-12'>
             <h2 className='text-5xl text-center font-bold my-12 pb-12'>Categories</h2>
             <div className='container px-2 md:px-2 mx-auto md:grid grid-cols-4 gap-12'>
-                {categories.map(category => <Link key={category.id}>
-                    <div className="card my-4 md:my-0 bg-base-100 shadow-sm hover:scale-105 transition duration-500 cursor-pointer text-center">
+                {categories.map(category =>
+                    <div key={category.id} className="card my-4 md:my-0 bg-base-100 shadow-sm  text-center">
                         <div className="card-body text-center">
-                            <h2 className="text-2xl">{category.name}</h2>
+                            <div className='bg-[#134E4A] py-1'>
+                                <Link className="text-2xl text-white">{category.name}</Link>
+                            </div>
                             <p>{category.about}</p>
                             <div className='flex flex-col mx-auto'>
-                                {category.subcategories.map(subcategory => <Link className='btn w-60'>{subcategory.name}</Link>)}
+                                {(category.subcategories).map(subcategory => <Link key={subcategory.id} className='btn w-60'>{subcategory.name}</Link>)}
                             </div>
                         </div>
                         <figure>
@@ -69,7 +71,6 @@ const Categories = () => {
                                 alt="Shoes" />
                         </figure>
                     </div>
-                </Link>
                 )}
             </div>
         </div>
