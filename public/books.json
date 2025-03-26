@@ -1,0 +1,183 @@
+[
+    {
+      "id": 1,
+      "image": "https://example.com/book1.jpg",
+      "name": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "category": "Fiction",
+      "quantity": 10,
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "image": "https://example.com/book2.jpg",
+      "name": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "category": "Fiction",
+      "quantity": 8,
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "image": "https://example.com/book3.jpg",
+      "name": "1984",
+      "author": "George Orwell",
+      "category": "Fiction",
+      "quantity": 12,
+      "rating": 4.7
+    },
+    {
+      "id": 4,
+      "image": "https://example.com/book4.jpg",
+      "name": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Fiction",
+      "quantity": 5,
+      "rating": 4.6
+    },
+    {
+      "id": 5,
+      "image": "https://example.com/book5.jpg",
+      "name": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "category": "Science",
+      "quantity": 7,
+      "rating": 4.9
+    },
+    {
+      "id": 6,
+      "image": "https://example.com/book6.jpg",
+      "name": "The Selfish Gene",
+      "author": "Richard Dawkins",
+      "category": "Science",
+      "quantity": 9,
+      "rating": 4.7
+    },
+    {
+      "id": 7,
+      "image": "https://example.com/book7.jpg",
+      "name": "Cosmos",
+      "author": "Carl Sagan",
+      "category": "Science",
+      "quantity": 6,
+      "rating": 4.8
+    },
+    {
+      "id": 8,
+      "image": "https://example.com/book8.jpg",
+      "name": "The Gene: An Intimate History",
+      "author": "Siddhartha Mukherjee",
+      "category": "Science",
+      "quantity": 11,
+      "rating": 4.6
+    },
+    {
+      "id": 9,
+      "image": "https://example.com/book9.jpg",
+      "name": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "category": "History",
+      "quantity": 10,
+      "rating": 4.9
+    },
+    {
+      "id": 10,
+      "image": "https://example.com/book10.jpg",
+      "name": "The Silk Roads",
+      "author": "Peter Frankopan",
+      "category": "History",
+      "quantity": 5,
+      "rating": 4.5
+    },
+    {
+      "id": 11,
+      "image": "https://example.com/book11.jpg",
+      "name": "Guns, Germs, and Steel",
+      "author": "Jared Diamond",
+      "category": "History",
+      "quantity": 8,
+      "rating": 4.7
+    },
+    {
+      "id": 12,
+      "image": "https://example.com/book12.jpg",
+      "name": "The Wright Brothers",
+      "author": "David McCullough",
+      "category": "History",
+      "quantity": 6,
+      "rating": 4.6
+    },
+    {
+      "id": 13,
+      "image": "https://example.com/book13.jpg",
+      "name": "Atomic Habits",
+      "author": "James Clear",
+      "category": "Self-Help",
+      "quantity": 15,
+      "rating": 4.9
+    },
+    {
+      "id": 14,
+      "image": "https://example.com/book14.jpg",
+      "name": "The Power of Habit",
+      "author": "Charles Duhigg",
+      "category": "Self-Help",
+      "quantity": 9,
+      "rating": 4.7
+    },
+    {
+      "id": 15,
+      "image": "https://example.com/book15.jpg",
+      "name": "Think and Grow Rich",
+      "author": "Napoleon Hill",
+      "category": "Self-Help",
+      "quantity": 8,
+      "rating": 4.6
+    },
+    {
+      "id": 16,
+      "image": "https://example.com/book16.jpg",
+      "name": "The 7 Habits of Highly Effective People",
+      "author": "Stephen R. Covey",
+      "category": "Self-Help",
+      "quantity": 10,
+      "rating": 4.8
+    },
+    {
+      "id": 17,
+      "image": "https://example.com/book17.jpg",
+      "name": "The Subtle Art of Not Giving a F*ck",
+      "author": "Mark Manson",
+      "category": "Self-Help",
+      "quantity": 12,
+      "rating": 4.5
+    },
+    {
+      "id": 18,
+      "image": "https://example.com/book18.jpg",
+      "name": "Rich Dad Poor Dad",
+      "author": "Robert Kiyosaki",
+      "category": "Self-Help",
+      "quantity": 14,
+      "rating": 4.8
+    },
+    {
+      "id": 19,
+      "image": "https://example.com/book19.jpg",
+      "name": "Deep Work",
+      "author": "Cal Newport",
+      "category": "Self-Help",
+      "quantity": 7,
+      "rating": 4.6
+    },
+    {
+      "id": 20,
+      "image": "https://example.com/book20.jpg",
+      "name": "Make Your Bed",
+      "author": "Admiral William H. McRaven",
+      "category": "Self-Help",
+      "quantity": 11,
+      "rating": 4.7
+    }
+  ]
+  
