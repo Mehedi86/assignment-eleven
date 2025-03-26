@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../components/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,9 +14,6 @@ const Login = () => {
         console.log(credit)
     }
 
-    const handleGoogleSignIn = () => {
-
-    }
     return (
         <div className="flex justify-center mt-28">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -31,7 +28,7 @@ const Login = () => {
                         <button className="btn btn-neutral mt-4">Login</button>
                         <div className="divider">OR</div>
                     </form>
-                    <button onClick={handleGoogleSignIn} className='btn'><FaGoogle /> Continue with Google</button>
+                    <SocialLogin/>
                     <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Register</span></p>
                 </div>
             </div>

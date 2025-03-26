@@ -1,7 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuthInfo from '../hooks/useAuthInfo';
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
+    const { user, logoutUser } = useAuthInfo();
+    console.log(user)
+
+    const handleLogout = () => {
+        logoutUser()
+            .then(() => {
+                console.log('user logged out successfully')
+            })
+            .catch(error => {
+                console.log("Error", error.message)
+            })
+    }
     const navItems =
         <>
             <NavLink>Home</NavLink>
@@ -19,7 +33,7 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            {navItems}
+                        {navItems}
                     </ul>
                 </div>
                 {/* website logo */}
@@ -30,12 +44,31 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-4">
-                {navItems}
+                    {navItems}
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink to='/login'>Login</NavLink>
-                <NavLink to='/register'>Register</NavLink>
+                {/* login Info conditional rendering */}
+
+                {user ? <>
+                    <div className='flex flex-col items-center'>
+                        <a
+                            data-tooltip-id="my-tooltip"
+                            data-tooltip-content={user?.displayName}>
+                            <img className='w-6 rounded-full' src={user?.photoURL} alt="" />
+                        </a>
+                        <button onClick={handleLogout} className='cursor-pointer font-semibold'>Logout</button>
+                    </div>
+                    <Tooltip id='my-tooltip' />
+                </>
+                    :
+                    <>
+                        <div className='space-x-2'>
+                            <NavLink to='/login'>Login</NavLink>
+                            <NavLink to='/register'>Register</NavLink>
+                        </div>
+                    </>
+                }
             </div>
         </div>
     );
