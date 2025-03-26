@@ -1,17 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
+import useAuthInfo from '../hooks/useAuthInfo';
 
 const Login = () => {
     const navigate = useNavigate();
+    const { loginUser } = useAuthInfo();
 
     const loginHandler = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const credit = { email, password }
-        console.log(credit)
+
+        loginUser(email, password)
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.log('Error', error.message)
+            })
     }
 
     return (
@@ -28,7 +36,7 @@ const Login = () => {
                         <button className="btn btn-neutral mt-4">Login</button>
                         <div className="divider">OR</div>
                     </form>
-                    <SocialLogin/>
+                    <SocialLogin />
                     <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Register</span></p>
                 </div>
             </div>

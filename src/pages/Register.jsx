@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
+import useAuthInfo from '../hooks/useAuthInfo';
 
 
 
 const Register = () => {
     const navigate = useNavigate();
-    
+    const { createUser, updateUserProfile } = useAuthInfo();
+
     const registerHandler = e => {
         e.preventDefault();
         const form = e.target;
@@ -14,10 +16,26 @@ const Register = () => {
         const url = form.url.value;
         const email = form.email.value;
         const password = form.password.value;
-        
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result);
+                
+                updateUserProfile({ displayName: name, photoURL: url })
+                    .then(() => {
+                        console.log('update successfull')
+                    })
+                    .catch(error => {
+                        console.log("Error", error.message)
+                    })
+            })
+            .catch(error => {
+                console.log("Error", error.message)
+            })
+
     }
 
-    
+
     return (
         <div className="flex justify-center mt-28">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -33,10 +51,10 @@ const Register = () => {
                         <label className="fieldset-label">Password</label>
                         <input type="password" className="input" placeholder="Password" name="password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn btn-neutral mt-4">Login</button>
+                        <button className="btn btn-neutral mt-4">Register</button>
                         <div className="divider">OR</div>
                     </form>
-                    <SocialLogin/>
+                    <SocialLogin />
                     <p>Already have an account? <span onClick={() => navigate("/login")} className="text-red-400 cursor-pointer">Login</span></p>
                 </div>
             </div>
