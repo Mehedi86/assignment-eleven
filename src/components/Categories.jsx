@@ -7,43 +7,64 @@ const Categories = () => {
             id: 1,
             name: "Fiction",
             thumbnail: "/fiction.jpg",
-            about: "Dive into imaginative worlds and captivating stories with our Fiction collection."
+            about: "Dive into imaginative worlds and captivating stories with our Fiction collection.",
+            subcategories: [
+                { id: 101, name: "Mystery" },
+                { id: 102, name: "Romance" },
+                { id: 103, name: "Sci-Fi" }
+            ]
         },
         {
             id: 2,
             name: "Science",
             thumbnail: "/science.jpg",
-            about: "Explore the wonders of the universe and groundbreaking discoveries in Science."
+            about: "Explore the wonders of the universe with our Science collection.",
+            subcategories: [
+                { id: 201, name: "Physics" },
+                { id: 202, name: "Biology" },
+                { id: 203, name: "Chemistry" }
+            ]
         },
         {
             id: 3,
             name: "History",
             thumbnail: "/history.jpg",
-            about: "Discover the past through fascinating accounts of historical events and figures."
+            about: "Uncover the past and learn from history through our extensive History collection.",
+            subcategories: [
+                { id: 301, name: "Ancient History" },
+                { id: 302, name: "Modern History" },
+                { id: 303, name: "Biographies" }
+            ]
         },
         {
             id: 4,
-            name: "Self-Help",
-            thumbnail: "/self-help.jpg",
-            about: "Empower yourself with insightful books on personal growth and development."
+            name: "Technology",
+            thumbnail: "/technology.jpg",
+            about: "Stay ahead with the latest advancements in Technology, from AI to cybersecurity.",
+            subcategories: [
+                { id: 401, name: "Artificial Intelligence" },
+                { id: 402, name: "Web Development" },
+                { id: 403, name: "Cybersecurity" }
+            ]
         }
-    ]
-
-
+    ];
 
     return (
         <div className='bg-[#F3E8FF] py-12 my-12'>
             <h2 className='text-5xl text-center font-bold my-12 pb-12'>Categories</h2>
             <div className='container px-2 md:px-2 mx-auto md:grid grid-cols-4 gap-12'>
                 {categories.map(category => <Link key={category.id}>
-                    <div className="card my-4 md:my-0 bg-base-100 shadow-sm hover:scale-105 transition duration-500 cursor-pointer">
-                        <div className="card-body">
-                            <h2 className="card-title">{category.name}</h2>
+                    <div className="card my-4 md:my-0 bg-base-100 shadow-sm hover:scale-105 transition duration-500 cursor-pointer text-center">
+                        <div className="card-body text-center">
+                            <h2 className="text-2xl">{category.name}</h2>
                             <p>{category.about}</p>
+                            <div className='flex flex-col mx-auto'>
+                                {category.subcategories.map(subcategory => <Link className='btn w-60'>{subcategory.name}</Link>)}
+                            </div>
                         </div>
                         <figure>
                             <img
-                                className='h-[270px] w-full'
+                                className='h-[200px] w-full'
                                 src={category.thumbnail}
                                 alt="Shoes" />
                         </figure>
