@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import BookCard from '../components/BookCard';
-import useAuthInfo from '../hooks/useAuthInfo';
+
 
 
 const AllBooks = () => {
-    const loadedAllBooks = useLoaderData();
-    const [books, setBooks] = useState(loadedAllBooks);
+    const [books, setBooks] = useState([]);
+
+    useEffect(()=>{
+        fetch('../books.json').then(res=> res.json()).then(data=> 
+            setBooks(data)
+        )
+    },[])
     
 
     return (

@@ -57,11 +57,11 @@ const Categories = () => {
                     <div key={category.id} className="card my-4 md:my-0 bg-base-100 shadow-sm  text-center">
                         <div className="card-body text-center">
                             <div className='bg-[#134E4A] py-1'>
-                                <Link className="text-2xl text-white">{category.name}</Link>
+                                <Link to={`/books/${category.name}`} className="text-2xl text-white">{category.name}</Link>
                             </div>
                             <p>{category.about}</p>
                             <div className='flex flex-col mx-auto'>
-                                {(category.subcategories).map(subcategory => <Link key={subcategory.id} className='btn w-60'>{subcategory.name}</Link>)}
+                                {(category.subcategories).map(subcategory => <Link to={`/books/categories/${subcategory.name}`} key={subcategory.id} className='btn w-60'>{subcategory.name}</Link>)}
                             </div>
                         </div>
                         <figure>

@@ -4,28 +4,43 @@ import Home from "../pages/Home";
 import AllBooks from "../pages/AllBooks";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import GenreWiseBooks from "../pages/GenreWiseBooks";
+import BookDetails from "../pages/BookDetails";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <MainLayout/>,
+        element: <MainLayout />,
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: '/allBooks',
-                element: <AllBooks/>,
-                loader: ()=> fetch('../books.json')
+                element: <AllBooks />,
             },
             {
                 path: '/login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register/>
+                element: <Register />
+            },
+            {
+                path: '/books/:genre',
+                element: <GenreWiseBooks />
+
+            },
+            {
+                path: '/books/categories/:genre',
+                element: <GenreWiseBooks />
+
+            },
+            {
+                path: '/books/details/:id',
+                element: <BookDetails />,
             }
         ]
     }
