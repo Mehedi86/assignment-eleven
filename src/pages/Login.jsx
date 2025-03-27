@@ -22,6 +22,8 @@ const Login = () => {
             })
     }
 
+    
+    
     return (
         <div className="flex justify-center mt-28">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

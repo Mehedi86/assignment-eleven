@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactStars from 'react-stars'
+import BorrowModal from '../components/BorrowModal';
 
 const BookDetails = () => {
     const { id } = useParams();
-    console.log(id)
     const [exactBook, setExactBook] = useState(null || {});
-
     const { author, category, image, name, quantity, rating, subcategory } = exactBook;
 
 
@@ -18,6 +17,10 @@ const BookDetails = () => {
                 setExactBook(findBook)
             })
     }, [id]);
+
+    const borrowHandler = () =>{
+        document.getElementById('my_modal_1').showModal()
+    }
 
     return (
         <div className='md:py-24'>
@@ -34,7 +37,9 @@ const BookDetails = () => {
                     color2={'#ffd700'} />
                     <p><span className='font-bold'>Category:</span> {category}</p>
                     <p><span className='font-bold'>Subcategory:</span> {subcategory}</p>
-                    <button className='btn my-6'>Borrow</button>
+                    <p className='text-red-400 font-bold'><span className='font-bold text-black'>Quantity: </span>{quantity}</p>
+                    <button onClick={borrowHandler} className='btn my-6'>Borrow</button>
+                    <BorrowModal/>
             </div>
         </div>
     );
