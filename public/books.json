@@ -7,7 +7,8 @@
         "category": "Fiction",
         "subcategory": "Mystery",
         "quantity": 12,
-        "rating": 4.5
+        "rating": 4.5,
+        "description": "A thrilling mystery set in an old manor where strange occurrences lead to a shocking revelation."
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "category": "Fiction",
         "subcategory": "Romance",
         "quantity": 8,
-        "rating": 4.2
+        "rating": 4.2,
+        "description": "A heartwarming romance about two souls finding each other under the moonlight."
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@
         "category": "Fiction",
         "subcategory": "Sci-Fi",
         "quantity": 15,
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "An epic space opera about warring factions across the galaxy fighting for ultimate control."
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@
         "category": "Science",
         "subcategory": "Physics",
         "quantity": 5,
-        "rating": 4.9
+        "rating": 4.9,
+        "description": "A comprehensive yet accessible introduction to the strange world of quantum physics."
     },
     {
         "id": 5,
@@ -47,7 +51,8 @@
         "category": "Science",
         "subcategory": "Biology",
         "quantity": 10,
-        "rating": 4.6
+        "rating": 4.6,
+        "description": "Exploring the fascinating microscopic world that makes up all living organisms."
     },
     {
         "id": 6,
@@ -57,7 +62,8 @@
         "category": "Science",
         "subcategory": "Chemistry",
         "quantity": 7,
-        "rating": 4.4
+        "rating": 4.4,
+        "description": "A detailed look at the fundamental chemical processes that shape our world."
     },
     {
         "id": 7,
@@ -67,7 +73,8 @@
         "category": "History",
         "subcategory": "Ancient History",
         "quantity": 9,
-        "rating": 4.3
+        "rating": 4.3,
+        "description": "Chronicling the emergence and development of humanity's earliest great societies."
     },
     {
         "id": 8,
@@ -77,7 +84,8 @@
         "category": "History",
         "subcategory": "Modern History",
         "quantity": 14,
-        "rating": 4.8
+        "rating": 4.8,
+        "description": "A comprehensive account of the global conflicts that shaped the 20th century."
     },
     {
         "id": 9,
@@ -87,7 +95,8 @@
         "category": "History",
         "subcategory": "Biographies",
         "quantity": 6,
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "An intimate portrait of the Renaissance genius whose inventions and art changed the world."
     },
     {
         "id": 10,
@@ -97,7 +106,8 @@
         "category": "Technology",
         "subcategory": "Artificial Intelligence",
         "quantity": 11,
-        "rating": 4.6
+        "rating": 4.6,
+        "description": "Exploring how artificial intelligence is transforming every aspect of modern life."
     },
     {
         "id": 11,
@@ -107,7 +117,8 @@
         "category": "Technology",
         "subcategory": "Web Development",
         "quantity": 13,
-        "rating": 4.9
+        "rating": 4.9,
+        "description": "The complete guide to building modern web applications with React.js."
     },
     {
         "id": 12,
@@ -117,7 +128,8 @@
         "category": "Technology",
         "subcategory": "Cybersecurity",
         "quantity": 7,
-        "rating": 4.5
+        "rating": 4.5,
+        "description": "Fundamental principles and practices for protecting digital systems and data."
     },
     {
         "id": 13,
@@ -127,7 +139,8 @@
         "category": "Fiction",
         "subcategory": "Mystery",
         "quantity": 8,
-        "rating": 4.3
+        "rating": 4.3,
+        "description": "A private investigator takes on a case that leads into the city's criminal underworld."
     },
     {
         "id": 14,
@@ -137,7 +150,8 @@
         "category": "Fiction",
         "subcategory": "Romance",
         "quantity": 10,
-        "rating": 4.2
+        "rating": 4.2,
+        "description": "A touching story about love lost and found across continents and years."
     },
     {
         "id": 15,
@@ -147,7 +161,8 @@
         "category": "Fiction",
         "subcategory": "Sci-Fi",
         "quantity": 12,
-        "rating": 4.8
+        "rating": 4.8,
+        "description": "A scientist's personal account of his accidental journeys through different eras."
     },
     {
         "id": 16,
@@ -157,7 +172,8 @@
         "category": "Science",
         "subcategory": "Physics",
         "quantity": 5,
-        "rating": 4.9
+        "rating": 4.9,
+        "description": "Einstein's own explanation of his groundbreaking theories of relativity."
     },
     {
         "id": 17,
@@ -167,7 +183,8 @@
         "category": "Science",
         "subcategory": "Biology",
         "quantity": 9,
-        "rating": 4.6
+        "rating": 4.6,
+        "description": "Decoding the blueprint of life and the latest advances in genetic research."
     },
     {
         "id": 18,
@@ -177,7 +194,8 @@
         "category": "Science",
         "subcategory": "Chemistry",
         "quantity": 6,
-        "rating": 4.4
+        "rating": 4.4,
+        "description": "An introductory guide to the molecular structures and reactions of carbon compounds."
     },
     {
         "id": 19,
@@ -187,7 +205,8 @@
         "category": "History",
         "subcategory": "Ancient History",
         "quantity": 8,
-        "rating": 4.2
+        "rating": 4.2,
+        "description": "Exploring the architectural and cultural marvels of ancient Egypt's civilization."
     },
     {
         "id": 20,
@@ -197,7 +216,8 @@
         "category": "History",
         "subcategory": "Modern History",
         "quantity": 11,
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "A detailed examination of the geopolitical tensions that defined the postwar period."
     },
     {
         "id": 21,
@@ -207,7 +227,8 @@
         "category": "History",
         "subcategory": "Biographies",
         "quantity": 9,
-        "rating": 4.8
+        "rating": 4.8,
+        "description": "The authorized biography of Apple's visionary co-founder and his impact on technology."
     },
     {
         "id": 22,
@@ -217,7 +238,8 @@
         "category": "Technology",
         "subcategory": "Artificial Intelligence",
         "quantity": 10,
-        "rating": 4.6
+        "rating": 4.6,
+        "description": "Predictions and insights about how artificial intelligence will evolve and affect humanity."
     },
     {
         "id": 23,
@@ -227,7 +249,8 @@
         "category": "Technology",
         "subcategory": "Artificial Intelligence",
         "quantity": 8,
-        "rating": 4.9
+        "rating": 4.9,
+        "description": "A practical introduction to neural networks and machine learning techniques."
     },
     {
         "id": 24,
@@ -237,7 +260,8 @@
         "category": "Technology",
         "subcategory": "Web Development",
         "quantity": 14,
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "Identifying and working with the most effective features of JavaScript."
     },
     {
         "id": 25,
@@ -247,7 +271,8 @@
         "category": "Technology",
         "subcategory": "Cybersecurity",
         "quantity": 9,
-        "rating": 4.8
+        "rating": 4.8,
+        "description": "Real-world hacking techniques and how to defend against them."
     },
     {
         "id": 26,
@@ -257,7 +282,8 @@
         "category": "Fiction",
         "subcategory": "Mystery",
         "quantity": 12,
-        "rating": 4.5
+        "rating": 4.5,
+        "description": "The legendary detective faces his most challenging and personal case yet."
     },
     {
         "id": 27,
@@ -267,7 +293,8 @@
         "category": "Fiction",
         "subcategory": "Sci-Fi",
         "quantity": 11,
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "A crew's thousand-year journey to colonize a distant star system."
     },
     {
         "id": 28,
@@ -277,7 +304,8 @@
         "category": "History",
         "subcategory": "Ancient History",
         "quantity": 6,
-        "rating": 4.6
+        "rating": 4.6,
+        "description": "The definitive history of Rome's rise, dominance, and eventual decline."
     },
     {
         "id": 29,
@@ -287,7 +315,8 @@
         "category": "History",
         "subcategory": "Biographies",
         "quantity": 10,
-        "rating": 4.4
+        "rating": 4.4,
+        "description": "Profiles of the influential figures shaping our contemporary world."
     },
     {
         "id": 30,
@@ -297,6 +326,7 @@
         "category": "Science",
         "subcategory": "Chemistry",
         "quantity": 7,
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "A journey through the elements that make up our universe and their properties."
     }
 ]
