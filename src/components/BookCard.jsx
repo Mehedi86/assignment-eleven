@@ -7,8 +7,9 @@ const BookCard = ({ book }) => {
         <div className='flex justify-center shadow-sm'>
             <div className="card bg-base-100 w-full flex flex-col justify-between">
                 <figure>
-                    <img
-                        src='/history.jpg'
+                    <img 
+                    className='h-[290px] w-full p-4'
+                        src={image || '/history.jpg'}
                         alt="Shoes" />
                 </figure>
                 <div className="p-4">

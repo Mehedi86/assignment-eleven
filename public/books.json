@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "The Mystery Manor",
-        "image": "/books/mystery-manor.jpg",
+        "image": "https://i.ibb.co.com/F4tgqWsW/mystry-manor.jpg",
         "author": "Arthur Doyle",
         "category": "Fiction",
         "subcategory": "Mystery",
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name": "Love in the Moonlight",
-        "image": "/books/love-moonlight.jpg",
+        "image": "https://i.ibb.co.com/0pq2wbP3/moonlight.jpg",
         "author": "Emily Carter",
         "category": "Fiction",
         "subcategory": "Romance",
@@ -24,7 +24,7 @@
     {
         "id": 3,
         "name": "Galactic Wars",
-        "image": "/books/galactic-wars.jpg",
+        "image": "https://i.ibb.co.com/Ng6GJyKk/galactic-war.jpg",
         "author": "James Orion",
         "category": "Fiction",
         "subcategory": "Sci-Fi",
@@ -35,7 +35,7 @@
     {
         "id": 4,
         "name": "Quantum Mechanics Explained",
-        "image": "/books/quantum-mechanics.jpg",
+        "image": "https://i.ibb.co.com/KzLgvrWp/quantum-mechanics.jpg",
         "author": "Dr. Richard Feynman",
         "category": "Science",
         "subcategory": "Physics",
@@ -46,7 +46,7 @@
     {
         "id": 5,
         "name": "The Secret Life of Cells",
-        "image": "/books/secret-cells.jpg",
+        "image": "https://i.ibb.co.com/zH6g8pzH/the-secret-life-of-cells.jpg",
         "author": "Dr. Lisa Brown",
         "category": "Science",
         "subcategory": "Biology",
@@ -57,7 +57,7 @@
     {
         "id": 6,
         "name": "Chemical Reactions Unveiled",
-        "image": "/books/chemical-reactions.jpg",
+        "image": "https://i.ibb.co.com/VWmH5wkG/chemical-reaction-unveiled.jpg",
         "author": "Dr. John Miller",
         "category": "Science",
         "subcategory": "Chemistry",
@@ -68,7 +68,7 @@
     {
         "id": 7,
         "name": "The Rise of Ancient Civilizations",
-        "image": "/books/ancient-civilizations.jpg",
+        "image": "https://i.ibb.co.com/whd0Qx5x/the-rise-of-ancient-civilization.jpg",
         "author": "William Harrison",
         "category": "History",
         "subcategory": "Ancient History",
@@ -79,7 +79,7 @@
     {
         "id": 8,
         "name": "World War Chronicles",
-        "image": "/books/world-war.jpg",
+        "image": "https://i.ibb.co.com/VY2VM5sK/world-war-chronicles.jpg",
         "author": "Sarah Johnson",
         "category": "History",
         "subcategory": "Modern History",
@@ -90,7 +90,7 @@
     {
         "id": 9,
         "name": "The Life of Leonardo Da Vinci",
-        "image": "/books/da-vinci.jpg",
+        "image": "https://i.ibb.co.com/gFZ91sd4/the-life-of-vinci.jpg",
         "author": "Margaret Green",
         "category": "History",
         "subcategory": "Biographies",
@@ -101,7 +101,7 @@
     {
         "id": 10,
         "name": "AI Revolution",
-        "image": "/books/ai-revolution.jpg",
+        "image": "https://i.ibb.co.com/1YfTr9w0/ai-revolution.jpg",
         "author": "Elon Patterson",
         "category": "Technology",
         "subcategory": "Artificial Intelligence",

@@ -25,7 +25,7 @@ const BookDetails = () => {
     return (
         <div className='md:py-24'>
             <div className='md:w-1/6 mx-auto'>
-                <img className='h-[400px]' src='/history.jpg' alt="" />
+                <img className='h-[400px]' src={image || '/history.jpg'} alt="" />
             </div>
             <div className='md:w-1/6 mx-auto'>
                 <h2 className='text-2xl font-bold'>{name}</h2>
