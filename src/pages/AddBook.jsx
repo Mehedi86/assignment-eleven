@@ -32,9 +32,6 @@ const AddBook = () => {
             .then(data => {
                 console.log(data);
             })
-        // .catch(error => {
-        //     console.log("Error", error.message)
-        // })
     }
     return (
         <div>

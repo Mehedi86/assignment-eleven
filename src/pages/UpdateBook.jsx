@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const UpdateBook = () => {
+    const { author, category, description, id, image, name, quantity, rating, subcategory, _id, content } = useLoaderData() || [];
 
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
 
@@ -19,8 +21,19 @@ const UpdateBook = () => {
     const handleUpdateBook = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const initialData = Object.fromEntries(formData);
-        console.log(initialData)
+        const updatedData = Object.fromEntries(formData);
+
+        fetch(`http://localhost:5000/updateBook/${_id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     // http://localhost:5000/books/67e66c44e39696e06ddc2816
@@ -32,29 +45,29 @@ const UpdateBook = () => {
                     <div className="card-body">
                         <form onSubmit={handleUpdateBook} className="fieldset">
                             <label className="fieldset-label">Image</label>
-                            <input type="text" className="input w-full" placeholder="Image" name="image" />
+                            <input type="text" className="input w-full" placeholder="Image" name="image" defaultValue={image} />
                             <label className="fieldset-label">Name</label>
-                            <input type="text" className="input w-full" placeholder="Name" name="name" />
+                            <input type="text" className="input w-full" placeholder="Name" name="name" defaultValue={name} />
                             <label className="fieldset-label">Quantity</label>
-                            <input type="text" className="input w-full" placeholder="Quantity" name="quantity" />
+                            <input type="text" className="input w-full" placeholder="Quantity" name="quantity" defaultValue={quantity} />
                             <label className="fieldset-label">Author Name</label>
-                            <input type="text" className="input w-full" placeholder="Author name" name="author" />
+                            <input type="text" className="input w-full" placeholder="Author name" name="author" defaultValue={author} />
                             <label className="fieldset-label">Category</label>
-                            <select onChange={handleSelectedCategory} defaultValue="Select a Category" className="select" name='category'>
+                            <select onChange={handleSelectedCategory} defaultValue={category} className="select" name='category'>
                                 <option hidden>Select a category</option>
                                 {Object.keys(subCategories).map(category => <option key={category} value={category}>{category}</option>)}
                             </select>
                             <label className="fieldset-label">Subcategory</label>
-                            <select defaultValue="Select a subcategory" className="select" name='subcategory'>
+                            <select defaultValue={subcategory} className="select" name='subcategory'>
                                 <option hidden>Select a subcategory</option>
                                 {selectedSubcategories.map(ssc => <option key={ssc} value={ssc}>{ssc}</option>)}
                             </select>
-                            <label className="fieldset-label">Short Description:</label>
-                            <input type="text" className="input w-full" placeholder="Description" name="description" />
+                            <label className="fieldset-label">Short Description</label>
+                            <input type="text" className="input w-full" placeholder="Description" name="description" defaultValue={description} />
                             <label className="fieldset-label">Rating</label>
-                            <input type="text" className="input w-full" placeholder="Rating" name="rating" />
+                            <input type="text" className="input w-full" placeholder="Rating" name="rating" defaultValue={rating} />
                             <label className="fieldset-label">Book Content</label>
-                            <input type="text" className="input w-full" placeholder="Book content" name="content" />
+                            <input type="text" className="input w-full" placeholder="Book content" name="content" defaultValue={content || ""} />
                             <button className="btn btn-neutral mt-4">Update</button>
                         </form>
                     </div>
