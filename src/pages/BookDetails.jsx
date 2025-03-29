@@ -10,10 +10,10 @@ const BookDetails = () => {
 
 
     useEffect(() => {
-        fetch('/books.json')
+        fetch('http://localhost:5000/books')
             .then(response => response.json())
             .then(data => {
-                const findBook = data.find(book => book.id == id);
+                const findBook = data.find(book => book._id == id);
                 setExactBook(findBook)
             })
     }, [id]);

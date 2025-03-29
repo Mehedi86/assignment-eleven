@@ -9,7 +9,7 @@ const GenreWiseBooks = () => {
     const location = useLocation();
 
     useEffect(() => {
-        fetch('/books.json') 
+        fetch('http://localhost:5000/books') 
             .then(response => response.json())
             .then(data => setBooks(data))
     }, []);
@@ -28,8 +28,8 @@ const GenreWiseBooks = () => {
     return (
         <div className='bg-[#F3E8FF]'>
             <h2 className='text-5xl text-center font-bold p-12'>{genre}</h2>
-            <div className='container mx-auto grid grid-cols-6 gap-4'>
-                {filteredBooks.map(book => <BookCard key={book.id} book={book} />)}
+            <div className='container mx-auto grid grid-cols-6 gap-4 pb-12'>
+                {filteredBooks.map(book => <BookCard key={book._id} book={book} />)}
             </div>
         </div>
     );

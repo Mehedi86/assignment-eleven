@@ -31,8 +31,8 @@ const Categories = () => {
             thumbnail: "/history.jpg",
             about: "Uncover the past and learn from history through our extensive History collection.",
             subcategories: [
-                { id: 301, name: "Ancient History" },
-                { id: 302, name: "Modern History" },
+                { id: 301, name: "Ancient_History" },
+                { id: 302, name: "Modern_History" },
                 { id: 303, name: "Biographies" }
             ]
         },
@@ -42,8 +42,8 @@ const Categories = () => {
             thumbnail: "/technology.jpg",
             about: "Stay ahead with the latest advancements in Technology, from AI to cybersecurity.",
             subcategories: [
-                { id: 401, name: "Artificial Intelligence" },
-                { id: 402, name: "Web Development" },
+                { id: 401, name: "Artificial_Intelligence" },
+                { id: 402, name: "Web_Development" },
                 { id: 403, name: "Cybersecurity" }
             ]
         }

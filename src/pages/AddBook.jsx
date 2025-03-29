@@ -1,12 +1,43 @@
 import { object } from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 const AddBook = () => {
+
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedSubcategories, setSelectedSubcategories] = useState([]);
+
+    const subCategories = {
+        Fiction: ["Mystery", "Romance", "Sci-Fi"],
+        Science: ["Physics", "Biology", "Chemistry"],
+        History: ["Ancient History", "Modern History", "Biographies"],
+        Technology: ["Artificial Intelligence", "Web Development", "Cybersecurity"],
+    };
+
+    const handleSelectedCategory = e =>{
+        const category = e.target.value;
+        setSelectedCategory(category);
+        setSelectedSubcategories(subCategories[category] || [])
+    }
+    
     const handleAddBook = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const initialData = Object.fromEntries(formData);
-        console.log(initialData)
+        const singleBook = Object.fromEntries(formData);
+
+        fetch('http://localhost:5000/books', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(singleBook)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+            // .catch(error => {
+            //     console.log("Error", error.message)
+            // })
     }
     return (
         <div>
@@ -24,28 +55,14 @@ const AddBook = () => {
                             <label className="fieldset-label">Author Name</label>
                             <input type="text" className="input w-full" placeholder="Author name" name="author" />
                             <label className="fieldset-label">Category</label>
-                            <select defaultValue="Select a Category" className="select" name='category'>
+                            <select onChange={handleSelectedCategory} defaultValue="Select a Category" className="select" name='category'>
                                 <option hidden>Select a category</option>
-                                <option value="Fiction">Fiction</option>
-                                <option value="History">History</option>
-                                <option value="Science">Science</option>
-                                <option value="Technology">Technology</option>
+                                {Object.keys(subCategories).map(category => <option key={category} value={category}>{category}</option>)}
                             </select>
-                            <label className="fieldset-label">Subcategory</label>
+                            <label className="fieldset-label">Subcategory (first Select Category)</label>
                             <select defaultValue="Select a subcategory" className="select" name='subcategory'>
                                 <option hidden>Select a subcategory</option>
-                                <option value="Mystery">Mystery</option>
-                                <option value="Romance">Romance</option>
-                                <option value="Sci-Fi">Sci-Fi</option>
-                                <option value="Ancient History">Ancient History</option>
-                                <option value="Modern History">Modern History</option>
-                                <option value="Biographies">Biographies</option>
-                                <option value="Physics">Physics</option>
-                                <option value="Biology">Biology</option>
-                                <option value="Chemistry">Chemistry</option>
-                                <option value="Artificial Intelligence">Artificial Intelligence</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Cybersecurity">Cybersecurity</option>
+                                {selectedSubcategories.map(ssc => <option key={ssc} value={ssc}>{ssc}</option>)}
                             </select>
                             <label className="fieldset-label">Short Description:</label>
                             <input type="text" className="input w-full" placeholder="Description" name="description" />

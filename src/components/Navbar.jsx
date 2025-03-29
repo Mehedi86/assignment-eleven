@@ -55,7 +55,7 @@ const Navbar = () => {
                         <a
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content={user?.displayName}>
-                            <img className='w-6 rounded-full' src={user?.photoURL} alt="" />
+                            <img className='w-6 rounded-full' src={user?.photoURL} alt="user" />
                         </a>
                         <button onClick={handleLogout} className='cursor-pointer font-semibold'>Logout</button>
                     </div>
