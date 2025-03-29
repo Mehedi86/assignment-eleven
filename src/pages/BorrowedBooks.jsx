@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuthInfo from '../hooks/useAuthInfo';
+import Swal from 'sweetalert2';
 
 const BorrowedBooks = () => {
     const { user } = useAuthInfo();
@@ -13,6 +14,25 @@ const BorrowedBooks = () => {
                 setMyBorrowedBooks(data);
             })
     }, [user?.email])
+
+    const returnBtnHandler = id => {
+        fetch(`http://localhost:5000/myBorrowedBook/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: "Successfully Returned!",
+                        icon: "success",
+                        draggable: true
+                    });
+                    const remaining = myBorrowedBooks.filter(mb => mb._id !== id);
+                    setMyBorrowedBooks(remaining);
+                }
+            })
+
+    }
     return (
         <div>
             <div className="overflow-x-auto">
@@ -43,7 +63,7 @@ const BorrowedBooks = () => {
                                 <td>{myBorrowedBook.borrowed_date}</td>
                                 <td>{myBorrowedBook.return_date}</td>
                                 <td>
-                                    <button className='btn'>Return</button>
+                                    <button onClick={() => returnBtnHandler(myBorrowedBook._id)} className='btn'>Return</button>
                                 </td>
                             </tr>
                         ))}
