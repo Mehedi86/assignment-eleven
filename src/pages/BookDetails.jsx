@@ -39,7 +39,7 @@ const BookDetails = () => {
                     <p><span className='font-bold'>Subcategory:</span> {subcategory}</p>
                     <p className='text-red-400 font-bold'><span className='font-bold text-black'>Quantity: </span>{quantity}</p>
                     <button onClick={borrowHandler} className='btn my-6'>Borrow</button>
-                    <BorrowModal/>
+                    <BorrowModal exactBook={exactBook}/>
             </div>
         </div>
     );

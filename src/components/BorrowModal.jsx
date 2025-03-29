@@ -1,12 +1,37 @@
 import React from 'react';
 import useAuthInfo from '../hooks/useAuthInfo';
+import Swal from 'sweetalert2';
 
-const BorrowModal = () => {
+const BorrowModal = ({ exactBook }) => {
     const { user } = useAuthInfo();
+    const date = (new Date().toISOString()).split('T');
+    const { author, category, image, name, quantity, rating, subcategory, _id } = exactBook;
     const borrowBtnHandler = e => {
         const formData = new FormData(e.target);
         const borrowData = Object.fromEntries(formData);
+        borrowData.image = image;
+        borrowData.name = name;
+        borrowData.bookId = _id;
+        borrowData.borrowed_date = date[0];
+        borrowData.category = category;
+        borrowData.subcategory = subcategory;
         console.log(borrowData)
+
+        fetch('http://localhost:5000/borrowBooks', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(borrowData)
+        }).then(res => res.json()).then(data => {
+            if (data.insertedId) {
+                Swal.fire({
+                    title: "Successfully Borrowed!",
+                    icon: "success",
+                    draggable: true
+                });
+            }
+        })
 
     }
     return (
@@ -23,7 +48,7 @@ const BorrowModal = () => {
                                     <label className="fieldset-label">Email</label>
                                     <input type="email" className="input" placeholder="email" name="email" defaultValue={user?.email} />
                                     <label className="fieldset-label">Return Date</label>
-                                    <input type="date" className="input" placeholder="Return Date" name="date" />
+                                    <input type="date" className="input" placeholder="Return Date" name="return_date" />
                                     <button className="btn btn-neutral mt-4">Submit</button>
                                 </form>
                                 <form method="dialog">
