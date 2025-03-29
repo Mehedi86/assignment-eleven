@@ -1,9 +1,7 @@
-import { object } from 'prop-types';
 import React, { useState } from 'react';
 
 const AddBook = () => {
 
-    const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
 
     const subCategories = {
@@ -13,12 +11,11 @@ const AddBook = () => {
         Technology: ["Artificial Intelligence", "Web Development", "Cybersecurity"],
     };
 
-    const handleSelectedCategory = e =>{
+    const handleSelectedCategory = e => {
         const category = e.target.value;
-        setSelectedCategory(category);
         setSelectedSubcategories(subCategories[category] || [])
     }
-    
+
     const handleAddBook = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -35,9 +32,9 @@ const AddBook = () => {
             .then(data => {
                 console.log(data);
             })
-            // .catch(error => {
-            //     console.log("Error", error.message)
-            // })
+        // .catch(error => {
+        //     console.log("Error", error.message)
+        // })
     }
     return (
         <div>
