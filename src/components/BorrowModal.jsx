@@ -4,11 +4,9 @@ import useAuthInfo from '../hooks/useAuthInfo';
 const BorrowModal = () => {
     const { user } = useAuthInfo();
     const borrowBtnHandler = e => {
-        // e.preventDefault();
-        const form = e.target;
-        // const name = form.name.value;
-        // const email = form.email.value;
-        const date = form.date.value;
+        const formData = new FormData(e.target);
+        const borrowData = Object.fromEntries(formData);
+        console.log(borrowData)
 
     }
     return (

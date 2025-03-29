@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const AddBook = () => {
 
@@ -30,7 +31,13 @@ const AddBook = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Successfully Added!",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
             })
     }
     return (

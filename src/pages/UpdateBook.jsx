@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateBook = () => {
     const { author, category, description, id, image, name, quantity, rating, subcategory, _id, content } = useLoaderData() || [];
@@ -32,11 +33,16 @@ const UpdateBook = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.matchedCount > 0) {
+                    Swal.fire({
+                        title: "Successfully Updated!",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
             })
     }
 
-    // http://localhost:5000/books/67e66c44e39696e06ddc2816
     return (
         <div>
             <div className="flex justify-center mt-12">
