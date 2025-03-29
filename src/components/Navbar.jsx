@@ -21,7 +21,7 @@ const Navbar = () => {
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/allBooks'>All Books</NavLink>
             <NavLink to='/addBook'>Add Books</NavLink>
-            <NavLink to='/borrowBook'>Borrowed Books</NavLink>
+            <NavLink to='/borrowedBooks'>Borrowed Books</NavLink>
         </>
     return (
         <div className="navbar bg-base-200">
