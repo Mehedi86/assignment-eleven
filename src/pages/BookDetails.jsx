@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
 import ReactStars from 'react-stars'
 import BorrowModal from '../components/BorrowModal';
 
+
 const BookDetails = () => {
-    const { id } = useParams();
-    const [exactBook, setExactBook] = useState(null || {});
+    const laodedBook = useLoaderData();
+    const [exactBook, setExactBook] = useState(laodedBook);
     const { author, category, image, name, quantity, rating, subcategory } = exactBook;
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/books')
-            .then(response => response.json())
-            .then(data => {
-                const findBook = data.find(book => book._id == id);
-                setExactBook(findBook)
-            })
-    }, [id]);
-
-    const borrowHandler = () =>{
+    const borrowHandler = () => {
         document.getElementById('my_modal_1').showModal()
+    }
+
+
+    const handleQuantity = () =>{
+        const updatedBook = {...exactBook, quantity: exactBook.quantity-1};
+        setExactBook(updatedBook);
     }
 
     return (
@@ -35,11 +33,14 @@ const BookDetails = () => {
                     value={rating || 0}
                     size={28}
                     color2={'#ffd700'} />
-                    <p><span className='font-bold'>Category:</span> {category}</p>
-                    <p><span className='font-bold'>Subcategory:</span> {subcategory}</p>
-                    <p className='text-red-400 font-bold'><span className='font-bold text-black'>Quantity: </span>{quantity}</p>
-                    <button onClick={borrowHandler} className='btn my-6'>Borrow</button>
-                    <BorrowModal exactBook={exactBook}/>
+                <p><span className='font-bold'>Category:</span> {category}</p>
+                <p><span className='font-bold'>Subcategory:</span> {subcategory}</p>
+                <p className='text-red-400 font-bold'><span className='font-bold text-black'>Quantity: </span>{quantity}</p>
+                <button onClick={borrowHandler} className='btn my-6'>Borrow</button>
+                <BorrowModal
+                    exactBook={exactBook}
+                    handleQuantity={handleQuantity}
+                />
             </div>
         </div>
     );
