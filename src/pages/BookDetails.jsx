@@ -14,9 +14,8 @@ const BookDetails = () => {
         document.getElementById('my_modal_1').showModal()
     }
 
-
-    const handleQuantity = () =>{
-        const updatedBook = {...exactBook, quantity: exactBook.quantity-1};
+    const handleQuantity = () => {
+        const updatedBook = exactBook.quantity > 0 ? { ...exactBook, quantity: exactBook.quantity - 1 } : exactBook;
         setExactBook(updatedBook);
     }
 
