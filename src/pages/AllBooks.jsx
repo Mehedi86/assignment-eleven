@@ -6,16 +6,25 @@ import BookCard from '../components/BookCard';
 const AllBooks = () => {
     const [books, setBooks] = useState([]);
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/books').then(res=> res.json()).then(data=> 
+    useEffect(() => {
+        fetch('http://localhost:5000/books').then(res => res.json()).then(data =>
             setBooks(data)
         )
-    },[])
-    
+    }, [])
+
+    const handleAvailableBtn = () =>{
+        const available = books.filter(book => book.quantity > 0);
+        setBooks(available);
+    }
+
 
     return (
         <div className='bg-[#F3E8FF]'>
             <h2 className='text-5xl text-center font-bold p-12'>All Books</h2>
+            <h2 className='text-center'>total books: {books?.length}</h2>
+            <div className='flex justify-end container mx-auto my-12'>
+                <button onClick={handleAvailableBtn} className='btn'>Show available books</button>
+            </div>
             <div className='container mx-auto md:grid grid-cols-6 gap-4 pb-12'>
                 {books.map(book => <BookCard key={book._id} book={book} />)}
             </div>
