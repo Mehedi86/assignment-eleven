@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import ReactStars from 'react-stars'
 import BorrowModal from '../components/BorrowModal';
 import useAuthInfo from '../hooks/useAuthInfo';
+import Spinner from '../components/Spinner';
 
 
 const BookDetails = () => {

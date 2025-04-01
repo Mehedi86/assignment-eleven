@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
 import useAuthInfo from '../hooks/useAuthInfo';
 
 const Login = () => {
     const navigate = useNavigate();
     const { loginUser } = useAuthInfo();
+    const location = useLocation();
 
     const loginHandler = e => {
         e.preventDefault();
@@ -16,14 +17,14 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 console.log(result);
+                const from = location?.state;
+                navigate(from);
             })
             .catch(error => {
                 console.log('Error', error.message)
             })
     }
 
-    
-    
     return (
         <div className="flex justify-center mt-28">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
