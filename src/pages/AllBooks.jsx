@@ -7,6 +7,7 @@ import TableView from '../components/TableView';
 const AllBooks = () => {
     const [books, setBooks] = useState([]);
     const [status, setStatus] = useState(null);
+    console.log(books)
 
     useEffect(() => {
         fetch('http://localhost:5000/books').then(res => res.json()).then(data =>

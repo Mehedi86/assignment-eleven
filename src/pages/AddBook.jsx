@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 const AddBook = () => {
 
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('')
 
     const subCategories = {
         Fiction: ["Mystery", "Romance", "Sci-Fi"],
@@ -22,6 +23,11 @@ const AddBook = () => {
         const formData = new FormData(e.target);
         const singleBook = Object.fromEntries(formData);
 
+        if (singleBook.rating > 5 || singleBook.rating < 0) {
+            return setErrorMessage('please keep rating below 5 and higher 0')
+        }
+
+
         fetch('http://localhost:5000/books', {
             method: "POST",
             headers: {
@@ -37,6 +43,8 @@ const AddBook = () => {
                         icon: "success",
                         draggable: true
                     });
+                    setErrorMessage('');
+                    e.target.reset();
                 }
             })
     }
@@ -67,10 +75,11 @@ const AddBook = () => {
                             </select>
                             <label className="fieldset-label">Short Description:</label>
                             <input type="text" className="input w-full" placeholder="Description" name="description" />
-                            <label className="fieldset-label">Rating</label>
+                            <label className="fieldset-label">Rating (0-5)</label>
                             <input type="text" className="input w-full" placeholder="Rating" name="rating" />
                             <label className="fieldset-label">Book Content</label>
                             <input type="text" className="input w-full" placeholder="Book content" name="content" />
+                            {errorMessage && <p className="text-red-600">{errorMessage}</p>}
                             <button className="btn btn-neutral mt-4">Submit</button>
                         </form>
                     </div>

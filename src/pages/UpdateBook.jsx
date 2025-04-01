@@ -6,6 +6,7 @@ const UpdateBook = () => {
     const { author, category, description, id, image, name, quantity, rating, subcategory, _id, content } = useLoaderData() || [];
 
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('')
 
     const subCategories = {
         Fiction: ["Mystery", "Romance", "Sci-Fi"],
@@ -24,6 +25,10 @@ const UpdateBook = () => {
         const formData = new FormData(e.target);
         const updatedData = Object.fromEntries(formData);
 
+        if (updatedData.rating > 5 || updatedData.rating < 0) {
+            return setErrorMessage('please keep rating below 5 and higher 0')
+        }
+
         fetch(`http://localhost:5000/updateBook/${_id}`, {
             method: "PUT",
             headers: {
@@ -39,6 +44,7 @@ const UpdateBook = () => {
                         icon: "success",
                         draggable: true
                     });
+                    setErrorMessage('');
                 }
             })
     }
@@ -74,6 +80,7 @@ const UpdateBook = () => {
                             <input type="text" className="input w-full" placeholder="Rating" name="rating" defaultValue={rating} />
                             <label className="fieldset-label">Book Content</label>
                             <input type="text" className="input w-full" placeholder="Book content" name="content" defaultValue={content || ""} />
+                            {errorMessage && <p className="text-red-600">{errorMessage}</p>}
                             <button className="btn btn-neutral mt-4">Update</button>
                         </form>
                     </div>

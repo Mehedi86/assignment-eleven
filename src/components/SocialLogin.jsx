@@ -2,6 +2,7 @@ import React from 'react';
 import useAuthInfo from '../hooks/useAuthInfo';
 import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const { googleSignIn } = useAuthInfo();
@@ -12,7 +13,12 @@ const SocialLogin = () => {
             .then(result => {
                 // console.log(result);
                 const from = location?.state;
-                navigate(from)
+                navigate(from || '/');
+                setTimeout(() => Swal.fire({
+                    title: "Successfully logged in!",
+                    icon: "success",
+                    draggable: true
+                }), 1000)
             })
             .catch(error => {
                 console.log("Error", error.message)

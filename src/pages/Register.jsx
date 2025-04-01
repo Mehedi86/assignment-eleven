@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
 import useAuthInfo from '../hooks/useAuthInfo';
@@ -8,6 +8,7 @@ import useAuthInfo from '../hooks/useAuthInfo';
 const Register = () => {
     const navigate = useNavigate();
     const { createUser, updateUserProfile } = useAuthInfo();
+    const [passwordError, setPasswordError] = useState('');
 
     const registerHandler = e => {
         e.preventDefault();
@@ -17,10 +18,16 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        const passwordValidationRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+        if (!passwordValidationRegex.test(password)) {
+            setPasswordError("Your password not fullful the criteria!! You need atleast 6 characters, minimum an uppercase and a lowercase");
+            return;
+        }
+
         createUser(email, password)
             .then(result => {
                 console.log(result);
-                
+
                 updateUserProfile({ displayName: name, photoURL: url })
                     .then(() => {
                         console.log('update successfull')
@@ -35,9 +42,8 @@ const Register = () => {
 
     }
 
-
     return (
-        <div className="flex justify-center mt-28">
+        <div className="flex justify-center my-28">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <h2 className='text-2xl font-bold text-center mt-6'>Please Register</h2>
                 <div className="card-body">
@@ -50,6 +56,7 @@ const Register = () => {
                         <input type="email" className="input" placeholder="Email" name="email" />
                         <label className="fieldset-label">Password</label>
                         <input type="password" className="input" placeholder="Password" name="password" />
+                        {passwordError && <p className="text-red-600">{passwordError}</p>}
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Register</button>
                         <div className="divider">OR</div>

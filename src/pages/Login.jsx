@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
 import useAuthInfo from '../hooks/useAuthInfo';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -18,33 +19,38 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 const from = location?.state;
-                navigate(from);
-            })
-            .catch(error => {
-                console.log('Error', error.message)
-            })
+                navigate(from || '/');
+                setTimeout(() => Swal.fire({
+                    title: "Successfully logged in!",
+                    icon: "success",
+                    draggable: true
+                }), 1000)
+    })
+            .catch (error => {
+    console.log('Error', error.message)
+})
     }
 
-    return (
-        <div className="flex justify-center mt-28">
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <h2 className='text-2xl font-bold text-center mt-6'>Please Login</h2>
-                <div className="card-body">
-                    <form onSubmit={loginHandler} className="fieldset">
-                        <label className="fieldset-label">Email</label>
-                        <input type="email" className="input" placeholder="Email" name="email" />
-                        <label className="fieldset-label">Password</label>
-                        <input type="password" className="input" placeholder="Password" name="password" />
-                        <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn btn-neutral mt-4">Login</button>
-                        <div className="divider">OR</div>
-                    </form>
-                    <SocialLogin />
-                    <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Register</span></p>
-                </div>
+return (
+    <div className="flex justify-center my-28">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <h2 className='text-2xl font-bold text-center mt-6'>Please Login</h2>
+            <div className="card-body">
+                <form onSubmit={loginHandler} className="fieldset">
+                    <label className="fieldset-label">Email</label>
+                    <input type="email" className="input" placeholder="Email" name="email" />
+                    <label className="fieldset-label">Password</label>
+                    <input type="password" className="input" placeholder="Password" name="password" />
+                    <div><a className="link link-hover">Forgot password?</a></div>
+                    <button className="btn btn-neutral mt-4">Login</button>
+                    <div className="divider">OR</div>
+                </form>
+                <SocialLogin />
+                <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Register</span></p>
             </div>
         </div>
-    );
+    </div>
+);
 };
 
 export default Login;

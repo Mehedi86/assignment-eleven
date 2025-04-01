@@ -21,10 +21,9 @@ const BookDetails = () => {
             .then(res => res.json())
             .then(data => {
                 const isExist = data.find(singleData => _id == singleData?.bookId);
-                
-                setStatus(!!isExist)
+                setStatus(quantity == 0 || !!isExist);
             })
-    }, [user?.email, _id])
+    }, [user?.email, _id, quantity])
 
 
 
@@ -38,7 +37,7 @@ const BookDetails = () => {
         setExactBook(updatedBook);
     }
 
-    const handleBorrowBtnUpdate = () =>{
+    const handleBorrowBtnUpdate = () => {
         setStatus(true);
     }
 
