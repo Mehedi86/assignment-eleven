@@ -1,13 +1,31 @@
-import React, { useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import ReactStars from 'react-stars'
 import BorrowModal from '../components/BorrowModal';
+import useAuthInfo from '../hooks/useAuthInfo';
 
 
 const BookDetails = () => {
     const laodedBook = useLoaderData();
+    const { user } = useAuthInfo();
     const [exactBook, setExactBook] = useState(laodedBook);
-    const { author, category, image, name, quantity, rating, subcategory } = exactBook;
+    // const [myborrowedBooks, setMyBorrowedBooks] = useState([]);
+    const [status, setStatus] = useState(true);
+
+    const { author, category, image, name, quantity, rating, subcategory, _id
+    } = exactBook;
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                const isExist = data.find(singleData => _id == singleData?.bookId);
+                
+                setStatus(!!isExist)
+            })
+    }, [user?.email, _id])
+
+
 
 
     const borrowHandler = () => {
@@ -17,6 +35,10 @@ const BookDetails = () => {
     const handleQuantity = () => {
         const updatedBook = exactBook.quantity > 0 ? { ...exactBook, quantity: exactBook.quantity - 1 } : exactBook;
         setExactBook(updatedBook);
+    }
+
+    const handleBorrowBtnUpdate = () =>{
+        setStatus(true);
     }
 
     return (
@@ -35,10 +57,11 @@ const BookDetails = () => {
                 <p><span className='font-bold'>Category:</span> {category}</p>
                 <p><span className='font-bold'>Subcategory:</span> {subcategory}</p>
                 <p className='text-red-400 font-bold'><span className='font-bold text-black'>Quantity: </span>{quantity}</p>
-                <button onClick={borrowHandler} className='btn my-6'>Borrow</button>
+                <button disabled={status} onClick={borrowHandler} className='btn my-6'>Borrow</button>
                 <BorrowModal
                     exactBook={exactBook}
                     handleQuantity={handleQuantity}
+                    handleBorrowBtnUpdate={handleBorrowBtnUpdate}
                 />
             </div>
         </div>

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const BorrowedBooks = () => {
     const { user } = useAuthInfo();
     const [myBorrowedBooks, setMyBorrowedBooks] = useState([]);
-    console.log(myBorrowedBooks)
+    
 
     useEffect(() => {
         fetch(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`)

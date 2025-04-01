@@ -2,7 +2,7 @@ import React from 'react';
 import useAuthInfo from '../hooks/useAuthInfo';
 import Swal from 'sweetalert2';
 
-const BorrowModal = ({ exactBook, handleQuantity }) => {
+const BorrowModal = ({ exactBook, handleQuantity, handleBorrowBtnUpdate }) => {
     const { user } = useAuthInfo();
     const date = (new Date().toISOString()).split('T');
     const { author, category, image, name, quantity, rating, subcategory, _id } = exactBook;
@@ -32,6 +32,7 @@ const BorrowModal = ({ exactBook, handleQuantity }) => {
                     draggable: true
                 });
                 handleQuantity();
+                handleBorrowBtnUpdate();
             }
         })
 
