@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAuthInfo from '../hooks/useAuthInfo';
 import Swal from 'sweetalert2';
 import useDynamicTitle from '../hooks/useDynamicTitle';
+import axios from 'axios';
 
 const BorrowedBooks = () => {
     useDynamicTitle('Borrowed Books')
@@ -10,11 +11,8 @@ const BorrowedBooks = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setMyBorrowedBooks(data);
-            })
+            axios.get(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`, {withCredentials: true})
+            .then(res=> setMyBorrowedBooks(res.data))
     }, [user?.email])
 
     const returnBtnHandler = id => {
