@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import useDocumentTitle from '../hooks/useDynamicTitle';
 
 const AddBook = () => {
+
+    useDocumentTitle('Add Books');
 
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
     const [errorMessage, setErrorMessage] = useState('')

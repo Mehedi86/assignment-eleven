@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import BookCard from '../components/BookCard';
 import TableView from '../components/TableView';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 
 
 const AllBooks = () => {
+
+    useDynamicTitle('AllBooks')
     const [books, setBooks] = useState([]);
     const [status, setStatus] = useState(null);
     console.log(books)

@@ -3,8 +3,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
 import useAuthInfo from '../hooks/useAuthInfo';
 import Swal from 'sweetalert2';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const Login = () => {
+    useDynamicTitle('Login')
     const navigate = useNavigate();
     const { loginUser } = useAuthInfo();
     const location = useLocation();

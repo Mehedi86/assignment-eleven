@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import BookCard from '../components/BookCard';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const GenreWiseBooks = () => {
     const { genre } = useParams();
+    useDynamicTitle(`${genre}`)
     const [books, setBooks] = useState([]);
     const [filteredBooks, setFilteredBooks] = useState([]);
     const location = useLocation();

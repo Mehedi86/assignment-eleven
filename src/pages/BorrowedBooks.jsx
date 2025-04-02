@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import useAuthInfo from '../hooks/useAuthInfo';
 import Swal from 'sweetalert2';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const BorrowedBooks = () => {
+    useDynamicTitle('Borrowed Books')
     const { user } = useAuthInfo();
     const [myBorrowedBooks, setMyBorrowedBooks] = useState([]);
     
@@ -34,7 +36,7 @@ const BorrowedBooks = () => {
 
     }
     return (
-        <div>
+        <div className='min-h-[900px]'>
             <div className="overflow-x-auto">
                 <h2 className="text-xl font-bold my-4">My Borrowed Books: {myBorrowedBooks.length}</h2>
                 <table className="table w-full table-zebra">

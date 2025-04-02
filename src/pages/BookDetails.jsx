@@ -4,9 +4,11 @@ import ReactStars from 'react-stars'
 import BorrowModal from '../components/BorrowModal';
 import useAuthInfo from '../hooks/useAuthInfo';
 import Spinner from '../components/Spinner';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 
 const BookDetails = () => {
+    useDynamicTitle('Book Details')
     const laodedBook = useLoaderData();
     const { user } = useAuthInfo();
     const [exactBook, setExactBook] = useState(laodedBook);

@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../components/SocialLogin';
 import useAuthInfo from '../hooks/useAuthInfo';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 
 
 const Register = () => {
+    useDynamicTitle('Register');
     const navigate = useNavigate();
     const { createUser, updateUserProfile } = useAuthInfo();
     const [passwordError, setPasswordError] = useState('');

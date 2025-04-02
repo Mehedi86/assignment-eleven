@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const UpdateBook = () => {
+    useDynamicTitle('Update Book')
     const { author, category, description, id, image, name, quantity, rating, subcategory, _id, content } = useLoaderData() || [];
 
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
