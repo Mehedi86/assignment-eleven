@@ -26,7 +26,7 @@ const AddBook = () => {
         const formData = new FormData(e.target);
         const singleBook = Object.fromEntries(formData);
 
-        if (singleBook.rating > 5 || singleBook.rating < 0) {
+        if (singleBook.rating > 5 || singleBook.rating < 0 || singleBook.rating == "") {
             return setErrorMessage('please keep rating below 5 and higher 0')
         }
 
