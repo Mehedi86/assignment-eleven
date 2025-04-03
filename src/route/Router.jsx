@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/books/details/:id',
                 element: <BookDetails />,
-                loader: ({params})=> fetch(`http://localhost:5000/books/${params.id}`)
+                loader: ({params})=> fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
             },
             {
                 path: '/addBook',
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateBook/:id',
                 element: <PrivateRoute><UpdateBook/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/books/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
             },
             {
                 path: '/borrowedBooks',

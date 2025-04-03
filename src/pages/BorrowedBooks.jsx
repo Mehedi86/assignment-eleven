@@ -13,7 +13,7 @@ const BorrowedBooks = () => {
 
 
     useEffect(() => {
-        // axios.get(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`, {withCredentials: true})
+        // axios.get(`https://assignment-eleven-server-black.vercel.app/myBorrowedBooks?email=${user?.email}`, {withCredentials: true})
         // .then(res=> setMyBorrowedBooks(res.data))
 
         axiosSecure.get(`/myBorrowedBooks?email=${user?.email}`)
@@ -21,7 +21,7 @@ const BorrowedBooks = () => {
     }, [user?.email])
 
     const returnBtnHandler = id => {
-        fetch(`http://localhost:5000/myBorrowedBook/${id}`, {
+        fetch(`https://assignment-eleven-server-black.vercel.app/myBorrowedBook/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

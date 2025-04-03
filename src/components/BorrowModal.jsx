@@ -18,7 +18,7 @@ const BorrowModal = ({ exactBook, handleQuantity, handleBorrowBtnUpdate }) => {
         borrowData.subcategory = subcategory;
         handleQuantity();
 
-        fetch('http://localhost:5000/borrowBooks', {
+        fetch('https://assignment-eleven-server-black.vercel.app/borrowBooks', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

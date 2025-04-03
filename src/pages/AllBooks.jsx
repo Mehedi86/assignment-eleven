@@ -15,7 +15,7 @@ const AllBooks = () => {
     console.log(books)
 
     useEffect(() => {
-        // fetch('http://localhost:5000/books').then(res => res.json()).then(data =>
+        // fetch('https://assignment-eleven-server-black.vercel.app/books').then(res => res.json()).then(data =>
         //     setBooks(data)
         // )
         axiosSecure.get('/books').then(res => {

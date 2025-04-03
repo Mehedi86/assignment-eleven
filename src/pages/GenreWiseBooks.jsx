@@ -13,7 +13,7 @@ const GenreWiseBooks = () => {
     const location = useLocation();
 
     useEffect(() => {
-        // fetch('http://localhost:5000/books') 
+        // fetch('https://assignment-eleven-server-black.vercel.app/books') 
         //     .then(response => response.json())
         //     .then(data => setBooks(data))
         axiosSecure.get('/books').then(res => {
