@@ -5,10 +5,12 @@ import BorrowModal from '../components/BorrowModal';
 import useAuthInfo from '../hooks/useAuthInfo';
 import Spinner from '../components/Spinner';
 import useDynamicTitle from '../hooks/useDynamicTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 
 const BookDetails = () => {
     useDynamicTitle('Book Details')
+    const axiosSecure = useAxiosSecure();
     const laodedBook = useLoaderData();
     const { user } = useAuthInfo();
     const [exactBook, setExactBook] = useState(laodedBook);
@@ -19,10 +21,16 @@ const BookDetails = () => {
     } = exactBook;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                const isExist = data.find(singleData => _id == singleData?.bookId);
+        // fetch(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         const isExist = data.find(singleData => _id == singleData?.bookId);
+        //         setStatus(quantity == 0 || !!isExist);
+        //     })
+
+        axiosSecure.get(`/myBorrowedBooks?email=${user?.email}`)
+            .then(res => {
+                const isExist = (res.data).find(singleData => _id == singleData?.bookId);
                 setStatus(quantity == 0 || !!isExist);
             })
     }, [user?.email, _id, quantity])

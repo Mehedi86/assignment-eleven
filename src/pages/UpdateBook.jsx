@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useDynamicTitle from '../hooks/useDynamicTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const UpdateBook = () => {
     useDynamicTitle('Update Book')
+    const axiosSecure = useAxiosSecure();
     const { author, category, description, id, image, name, quantity, rating, subcategory, _id, content } = useLoaderData() || [];
 
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
@@ -27,28 +29,39 @@ const UpdateBook = () => {
         const formData = new FormData(e.target);
         const updatedData = Object.fromEntries(formData);
 
-        if (updatedData.rating > 5 || updatedData.rating < 0 || singleBook.rating == "") {
+        if (updatedData.rating > 5 || updatedData.rating < 0 || updatedData.rating == "") {
             return setErrorMessage('please keep rating below 5 and higher 0')
         }
 
-        fetch(`http://localhost:5000/updateBook/${_id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(updatedData)
+        axiosSecure.put(`/updateBook/${_id}`, updatedData).then(res => {
+            if (res.data.matchedCount > 0) {
+                Swal.fire({
+                    title: "Successfully Updated!",
+                    icon: "success",
+                    draggable: true
+                });
+                setErrorMessage('');
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.matchedCount > 0) {
-                    Swal.fire({
-                        title: "Successfully Updated!",
-                        icon: "success",
-                        draggable: true
-                    });
-                    setErrorMessage('');
-                }
-            })
+
+        // fetch(`http://localhost:5000/updateBook/${_id}`, {
+        //     method: "PUT",
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(updatedData)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.matchedCount > 0) {
+        //             Swal.fire({
+        //                 title: "Successfully Updated!",
+        //                 icon: "success",
+        //                 draggable: true
+        //             });
+        //             setErrorMessage('');
+        //         }
+        //     })
     }
 
     return (

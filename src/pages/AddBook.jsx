@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import useDocumentTitle from '../hooks/useDynamicTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const AddBook = () => {
 
     useDocumentTitle('Add Books');
-
+    const axiosSecure = useAxiosSecure();
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -30,26 +31,37 @@ const AddBook = () => {
             return setErrorMessage('please keep rating below 5 and higher 0')
         }
 
-
-        fetch('http://localhost:5000/books', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(singleBook)
+        axiosSecure.post('/books', singleBook).then(res => {
+            if (res.data.insertedId) {
+                Swal.fire({
+                    title: "Successfully Added!",
+                    icon: "success",
+                    draggable: true
+                });
+                setErrorMessage('');
+                e.target.reset();
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: "Successfully Added!",
-                        icon: "success",
-                        draggable: true
-                    });
-                    setErrorMessage('');
-                    e.target.reset();
-                }
-            })
+
+        // fetch('http://localhost:5000/books', {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(singleBook)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.insertedId) {
+        //             Swal.fire({
+        //                 title: "Successfully Added!",
+        //                 icon: "success",
+        //                 draggable: true
+        //             });
+        //             setErrorMessage('');
+        //             e.target.reset();
+        //         }
+        //     })
     }
     return (
         <div>

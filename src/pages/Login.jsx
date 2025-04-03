@@ -26,7 +26,7 @@ const Login = () => {
                     title: "Successfully logged in!",
                     icon: "success",
                     draggable: true
-                }), 1000)
+                }), 500)
     })
             .catch (error => {
     console.log('Error', error.message)

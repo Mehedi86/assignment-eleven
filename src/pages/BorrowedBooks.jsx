@@ -3,16 +3,21 @@ import useAuthInfo from '../hooks/useAuthInfo';
 import Swal from 'sweetalert2';
 import useDynamicTitle from '../hooks/useDynamicTitle';
 import axios from 'axios';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const BorrowedBooks = () => {
     useDynamicTitle('Borrowed Books')
     const { user } = useAuthInfo();
     const [myBorrowedBooks, setMyBorrowedBooks] = useState([]);
-    
+    const axiosSecure = useAxiosSecure();
+
 
     useEffect(() => {
-            axios.get(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`, {withCredentials: true})
-            .then(res=> setMyBorrowedBooks(res.data))
+        // axios.get(`http://localhost:5000/myBorrowedBooks?email=${user?.email}`, {withCredentials: true})
+        // .then(res=> setMyBorrowedBooks(res.data))
+
+        axiosSecure.get(`/myBorrowedBooks?email=${user?.email}`)
+            .then(res => setMyBorrowedBooks(res.data))
     }, [user?.email])
 
     const returnBtnHandler = id => {

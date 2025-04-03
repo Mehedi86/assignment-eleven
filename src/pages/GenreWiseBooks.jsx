@@ -2,18 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import BookCard from '../components/BookCard';
 import useDynamicTitle from '../hooks/useDynamicTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const GenreWiseBooks = () => {
     const { genre } = useParams();
+    const axiosSecure = useAxiosSecure();
     useDynamicTitle(`${genre}`)
     const [books, setBooks] = useState([]);
     const [filteredBooks, setFilteredBooks] = useState([]);
     const location = useLocation();
 
     useEffect(() => {
-        fetch('http://localhost:5000/books') 
-            .then(response => response.json())
-            .then(data => setBooks(data))
+        // fetch('http://localhost:5000/books') 
+        //     .then(response => response.json())
+        //     .then(data => setBooks(data))
+        axiosSecure.get('/books').then(res => {
+            setBooks(res.data);
+        })
     }, []);
 
     useEffect(() => {

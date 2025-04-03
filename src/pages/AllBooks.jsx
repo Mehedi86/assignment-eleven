@@ -2,20 +2,25 @@ import React, { useEffect, useState } from 'react';
 import BookCard from '../components/BookCard';
 import TableView from '../components/TableView';
 import useDynamicTitle from '../hooks/useDynamicTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 
 
 const AllBooks = () => {
 
-    useDynamicTitle('AllBooks')
+    useDynamicTitle('AllBooks');
+    const axiosSecure = useAxiosSecure();
     const [books, setBooks] = useState([]);
     const [status, setStatus] = useState(null);
     console.log(books)
 
     useEffect(() => {
-        fetch('http://localhost:5000/books').then(res => res.json()).then(data =>
-            setBooks(data)
-        )
+        // fetch('http://localhost:5000/books').then(res => res.json()).then(data =>
+        //     setBooks(data)
+        // )
+        axiosSecure.get('/books').then(res => {
+            setBooks(res.data)
+        })
     }, [])
 
     const handleAvailableBtn = () => {
