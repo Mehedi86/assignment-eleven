@@ -1,6 +1,7 @@
 ## Project name
 
-- Edulab
+- Edulab (Library management system)
+- Varient: Assignment_category_08
 
 ## Purpose
 
