@@ -13,7 +13,7 @@ const SocialLogin = () => {
             .then(result => {
                 // console.log(result);
                 const from = location?.state;
-                navigate(from || '/');
+                setTimeout(() => navigate(from || '/'), 1000);
                 setTimeout(() => Swal.fire({
                     title: "Successfully logged in!",
                     icon: "success",

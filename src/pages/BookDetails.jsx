@@ -17,7 +17,7 @@ const BookDetails = () => {
     // const [myborrowedBooks, setMyBorrowedBooks] = useState([]);
     const [status, setStatus] = useState(true);
 
-    const { author, category, image, name, quantity, rating, subcategory, _id
+    const { author, category, image, name, quantity, rating, subcategory, _id, description
     } = exactBook;
 
     useEffect(() => {
@@ -59,6 +59,7 @@ const BookDetails = () => {
             <div className='md:w-1/6 mx-auto'>
                 <h2 className='text-2xl font-bold'>{name}</h2>
                 <p className='text-teal-600'><span className='text-black'>By</span> {author}</p>
+                <p className='text-neutral-400 mt-2'>{description}</p>
                 <ReactStars
                     count={5}
                     value={rating || 0}

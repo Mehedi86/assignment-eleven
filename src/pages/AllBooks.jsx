@@ -12,8 +12,7 @@ const AllBooks = () => {
     const axiosSecure = useAxiosSecure();
     const [books, setBooks] = useState([]);
     const [status, setStatus] = useState(null);
-    console.log(books)
-
+    
     useEffect(() => {
         // fetch('https://assignment-eleven-server-black.vercel.app/books').then(res => res.json()).then(data =>
         //     setBooks(data)

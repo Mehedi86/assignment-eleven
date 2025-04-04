@@ -13,12 +13,13 @@ const GenreWiseBooks = () => {
     const location = useLocation();
 
     useEffect(() => {
-        // fetch('https://assignment-eleven-server-black.vercel.app/books') 
-        //     .then(response => response.json())
-        //     .then(data => setBooks(data))
-        axiosSecure.get('/books').then(res => {
-            setBooks(res.data);
-        })
+        fetch('https://assignment-eleven-server-black.vercel.app/booksForQuery') 
+            .then(response => response.json())
+            .then(data => setBooks(data))
+
+        // axiosSecure.get('/booksForQuery').then(res => {
+        //     setBooks(res.data);
+        // })
     }, []);
 
     useEffect(() => {

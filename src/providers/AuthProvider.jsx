@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
                 axios.post('https://assignment-eleven-server-black.vercel.app/jwtLogin', user, { withCredentials: true })
                     .then(res => {
                         console.log('login token', res.data);
-                        setLoading(false)
+                        setLoading(false);
                     })
             }
             else {

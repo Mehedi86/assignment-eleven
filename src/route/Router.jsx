@@ -11,12 +11,13 @@ import UpdateBook from "../pages/UpdateBook";
 import BorrowedBooks from "../pages/BorrowedBooks";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import BookDetailsWithoutBorrow from "../pages/BookDetailsWithoutBorrow";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
-        errorElement: <ErrorPage/>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -47,20 +48,25 @@ const router = createBrowserRouter([
             {
                 path: '/books/details/:id',
                 element: <BookDetails />,
-                loader: ({params})=> fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
+            },
+            {
+                path: '/books/detailsNoUser/:id',
+                element: <BookDetailsWithoutBorrow />,
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
             },
             {
                 path: '/addBook',
-                element: <PrivateRoute><AddBook/></PrivateRoute>
+                element: <PrivateRoute><AddBook /></PrivateRoute>
             },
             {
                 path: '/updateBook/:id',
-                element: <PrivateRoute><UpdateBook/></PrivateRoute>,
-                loader: ({params}) => fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
+                element: <PrivateRoute><UpdateBook /></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-black.vercel.app/books/${params.id}`)
             },
             {
                 path: '/borrowedBooks',
-                element: <PrivateRoute><BorrowedBooks/></PrivateRoute>
+                element: <PrivateRoute><BorrowedBooks /></PrivateRoute>
             }
         ]
     }

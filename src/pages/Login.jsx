@@ -10,6 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { loginUser } = useAuthInfo();
     const location = useLocation();
+    console.log(location)
 
     const loginHandler = e => {
         e.preventDefault();
@@ -21,7 +22,8 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 const from = location?.state;
-                navigate(from || '/');
+                setTimeout(() => navigate(from || '/'), 1000);
+                
                 setTimeout(() => Swal.fire({
                     title: "Successfully logged in!",
                     icon: "success",
