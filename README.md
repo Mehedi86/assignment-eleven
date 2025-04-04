@@ -1,12 +1,25 @@
-# React + Vite
+## Project name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Edulab
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- To provide experience a seamless online library management system experice to the students.
 
-## Expanding the ESLint configuration
+## Live URL
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- https://silly-cobbler-5517a0.netlify.app
+
+## Key features
+
+- jwt authentication
+- secure apis
+- better user experience
+- firebase authentication
+
+## Used Npm packages
+
+- react stars
+- react icons
+- react tooltip
+- sweetalert2
