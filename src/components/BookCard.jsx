@@ -6,7 +6,7 @@ const BookCard = ({ book }) => {
     const {user} = useAuthInfo();
     const { author, category, image, name, quantity, rating, subcategory, _id } = book;
     return (
-        <div className='flex justify-center shadow-sm'>
+        <div className='flex justify-center shadow-sm my-2 md:my-0'>
             <div className="card bg-base-100 w-full flex flex-col justify-between">
                 <figure>
                     <img 

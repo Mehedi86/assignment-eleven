@@ -35,8 +35,8 @@ const GenreWiseBooks = () => {
 
     return (
         <div className='bg-[#F3E8FF]'>
-            <h2 className='text-5xl text-center font-bold p-12'>{genre}</h2>
-            <div className='container mx-auto grid grid-cols-6 gap-4 pb-12'>
+            <h2 className='text-2xlmd:text-5xl text-center font-bold p-12'>{genre}</h2>
+            <div className='container mx-auto md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 pb-12 px-2'>
                 {filteredBooks.map(book => <BookCard key={book._id} book={book} />)}
             </div>
         </div>

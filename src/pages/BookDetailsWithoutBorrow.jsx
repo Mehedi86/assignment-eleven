@@ -15,11 +15,11 @@ const BookDetailsWithoutBorrow = () => {
 
 
     return (
-        <div className='md:py-24'>
-            <div className='md:w-1/6 mx-auto'>
-                <img className='h-[400px]' src={image || '/history.jpg'} alt="" />
+        <div className='md:py-24 p-2 md:p-0 md:w-2/6 lg:w-2/6 mx-auto'>
+            <div>
+                <img className='h-[400px] w-full' src={image || '/history.jpg'} alt="" />
             </div>
-            <div className='md:w-1/6 mx-auto'>
+            <div>
                 <h2 className='text-2xl font-bold'>{name}</h2>
                 <p className='text-teal-600'><span className='text-black'>By</span> {author}</p>
                 <p className='text-neutral-400 mt-2'>{description}</p>

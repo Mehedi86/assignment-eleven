@@ -7,7 +7,7 @@ const TableView = ({ books }) => {
         <div>
             <div className="overflow-x-auto">
                 <h2 className="text-xl font-bold my-4">My Borrowed Books: {books.length}</h2>
-                <table className="table w-full table-zebra">
+                <table className="table w-full table-zebra text-center">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -24,7 +24,7 @@ const TableView = ({ books }) => {
                         {books.map((book, index) => (
                             <tr key={book._id}>
                                 <td>{index + 1}</td>
-                                <td>
+                                <td className='flex justify-center'>
                                     <img src={book.image || "N/A"} alt="Company Logo" className="w-12 h-12" />
                                 </td>
                                 <td>{book.name}</td>
