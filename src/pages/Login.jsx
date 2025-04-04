@@ -22,7 +22,7 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 const from = location?.state;
-                setTimeout(() => navigate(from || '/'), 1000);
+                setTimeout(() => navigate(from || '/'), 2000);
                 
                 setTimeout(() => Swal.fire({
                     title: "Successfully logged in!",
