@@ -23,6 +23,7 @@ const BorrowModal = ({ exactBook, handleQuantity, handleBorrowBtnUpdate }) => {
             headers: {
                 "content-type": "application/json"
             },
+            credentials: 'include',
             body: JSON.stringify(borrowData)
         }).then(res => res.json()).then(data => {
             if (data.modifiedCount > 0) {
