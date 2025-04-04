@@ -67,7 +67,6 @@ const Register = () => {
                         <label className="fieldset-label">Password</label>
                         <input type="password" className="input" placeholder="Password" name="password" />
                         {passwordError && <p className="text-red-600">{passwordError}</p>}
-                        <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Register</button>
                         <div className="divider">OR</div>
                     </form>
