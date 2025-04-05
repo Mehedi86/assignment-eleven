@@ -2,6 +2,8 @@ import React from 'react';
 import Banner from '../components/Banner';
 import Categories from '../components/Categories';
 import useDynamicTitle from '../hooks/useDynamicTitle';
+import BookAuthors from '../components/BookAuthors';
+import Reviews from '../components/Reviews';
 
 const Home = () => {
     useDynamicTitle('Home');
@@ -13,6 +15,8 @@ const Home = () => {
 
             <Banner />
             <Categories />
+            <BookAuthors/>
+            <Reviews/>
         </div>
     );
 };
