@@ -52,7 +52,7 @@ const Categories = () => {
     return (
         <div className='bg-[#F3E8FF] py-12 my-12'>
             <h2 className='text-2xl md:text-5xl text-center font-bold my-12 '>Categories</h2>
-            <h2 className='text-lg md:text-xl text-gray-400 font-semibold text-center pb-12 px-2'>Click any <span className='text-orange-400 animate-pulse font-bold'>Category</span> or Subcategory will redirect you to your desired collection!!</h2>
+            <h2 className='text-lg md:text-xl text-gray-400 font-semibold text-center pb-12 px-2'>Click any <span className='text-orange-400 animate-pulse font-bold'>Category</span> or <span className='text-orange-400 animate-pulse font-bold'>Subcategory</span> will redirect you to your desired collection!!</h2>
             <div className='container px-2 md:px-2 mx-auto md:grid md:grid-cols-3 lg:grid-cols-4 gap-12'>
                 {categories.map(category =>
                     <div key={category.id} className="card my-4 md:my-0 bg-base-100 shadow-sm  text-center">
